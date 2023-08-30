@@ -20,7 +20,7 @@ class BooklistAdapter: RecyclerView.Adapter<BooklistAdapter.ViewHolder>() {
     override fun getItemCount(): Int = BookStore.count
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = BookStore.books.get(position)
+        val item = BookStore.books[position]
         holder.bind(item)
     }
 
