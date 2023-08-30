@@ -3,6 +3,9 @@ package au.edu.swin.sdmd.w07_booklist_solutions_2023
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class BooklistAdapter: RecyclerView.Adapter<BooklistAdapter.ViewHolder>() {
@@ -22,8 +25,16 @@ class BooklistAdapter: RecyclerView.Adapter<BooklistAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(val v: View): RecyclerView.ViewHolder(v) {
+        val image = v.findViewById<ImageView>(R.id.cover)
+        val title = v.findViewById<TextView>(R.id.title)
+        val rating = v.findViewById<RatingBar>(R.id.rating)
 
         fun bind(item: Book) {
+            title.text = item.title
+            rating.rating = item.rating
+            val imageRes = v.context.resources.getIdentifier("l${item.image}" ,
+                "drawable", v.context.packageName)
+            image.setImageResource(imageRes)
 
         }
     }
